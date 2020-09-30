@@ -47,8 +47,9 @@ const cText = 'QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD';
 const text1 = 'This is secret. Message about "_" symbol!';
 const fileText = fs.readFileSync('./textNew.txt', 'utf8');
 // console.log(fileText);
-let retData = cipher(returnObject.shift, fileText.toUpperCase());
 
-fs.writeFileSync('./text.txt', retData, 'utf8');
+const newFileText = fs.readFileSync('./text.txt', 'utf8').concat('\n').concat(cipher(returnObject.shift, fileText.toUpperCase()));
+// let retData = cipher(returnObject.shift, fileText.toUpperCase());
+fs.writeFileSync('./text.txt', newFileText, 'utf8');
 // const shift = keys.includes()
 // console.log(argv);
