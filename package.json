@@ -1,0 +1,19 @@
+{
+  "name": "caesar_cipher_cli_tool",
+  "version": "1.0.0",
+  "description": "caesar cipher cli tool",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "test",
+    "start": "node index.js"
+  },
+  "bin": {
+    "my_caesar_cli": "index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "minimist": "^1.2.5"
+  }
+}
