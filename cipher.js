@@ -8,20 +8,21 @@ export default function (shift, text) {
   const cipheredAlphabetString = firstChunk + secondChunk;
   const cipheredAlphabetArray = cipheredAlphabetString.split('');
   const cipheredAlphabetLength = cipheredAlphabetArray.length;
-  console.log(originalAlphabetString);
-  console.log(`original alphabet length: ${alphabetLength}`);
-  console.log(`shift: ${shift}`);
-  console.log(`normaliseShift: ${normaliseShift}`);
-  console.log(cipheredAlphabetString);
-  console.log(`ciph_A_L: ${cipheredAlphabetLength}`);
+  // console.log(originalAlphabetString);
+  // console.log(`original alphabet length: ${alphabetLength}`);
+  // console.log(`shift: ${shift}`);
+  // console.log(cipheredAlphabetString);
+  // console.log(`ciph_A_L: ${cipheredAlphabetLength}`);
 
   const returnData = text.split('').map((i) => {
-    if (i === ' ') {
-      return ' ';
+    if (i === ' ' || (!originalAlphabetArray.includes(i))) {
+      return i;
     }
+
     return cipheredAlphabetArray[originalAlphabetArray.indexOf(i)];
   }).join('');
-  console.log(text);
-  console.log(returnData);
-  return ('cipher');
+  // console.log(text);
+  // console.log(returnData);
+  // console.log(text === returnData);
+  return returnData;
 }

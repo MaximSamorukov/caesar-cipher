@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 import minimist from 'minimist';
 import cipher from './cipher.js';
+import fs from 'fs';
 
 
 
@@ -32,7 +33,7 @@ const args = {
   output: 'output file',
   action: 'action',
 };
-console.log('Hi');
+// console.log('Hi');
 let keys = Object.keys(argv);
 
 
@@ -42,6 +43,12 @@ keys.map((i) => {
   }
 })
 const text = 'THE QUICK BROWN FOX JUMPS OVER THE LAZY DOG';
-const cText = 'QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD'
-cipher(returnObject.shift, cText);
+const cText = 'QEB NRFZH YOLTK CLU GRJMP LSBO QEB IXWV ALD';
+const text1 = 'This is secret. Message about "_" symbol!';
+const fileText = fs.readFileSync('./textNew.txt', 'utf8');
+// console.log(fileText);
+let retData = cipher(returnObject.shift, fileText.toUpperCase());
+
+fs.writeFileSync('./text.txt', retData, 'utf8');
 // const shift = keys.includes()
+// console.log(argv);
