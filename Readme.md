@@ -10,9 +10,9 @@
 
 3. To launch Caesar cipher you may:
 
-  3.1. `my_caesar_cli <options>`;
+  3.1. Option 1: `my_caesar_cli <options>`;
 
-  3.2. `node index <options>`;
+  3.2. Option 2: `node index <options>`;
 
 4. While working in CL, to exit press `Ctrl + C`;
 
