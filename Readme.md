@@ -1,4 +1,4 @@
-CLI Caesar cipher
+**CLI Caesar cipher**
 
 # Instruction
 
@@ -24,9 +24,9 @@ CLI Caesar cipher
 
   5.3. `-a` , `--action` - can be `encode` or `decode` only. Argument required;
 
-  5.4. `-i` , `--input` - input sourse. If no argument, then `process.stdin` used;
+  5.4. `-i` , `--input` - input sourse. If no argument, then `process.stdin` used. As application doesn't create new file according to path provided. So, please, use the path of an existing file;
 
-  5.5. `-o` , `--output` - output channel. If no argument, then `process.stdout` used. Application doesn't create new file according to path provided. So, please, use the path of an existing file.
+  5.5. `-o` , `--output` - output channel. If no argument, then `process.stdout` used. As application doesn't create new file according to path provided. So, please, use the path of an existing file.
 
 # Examples of usage
 
