@@ -1,5 +1,4 @@
 export default function ({ shift, action, output, input }, text) {
-  console.log(text);
   const originalAlphabetString = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   const originalAlphabetArray = originalAlphabetString.split('');
   const alphabetLength = originalAlphabetArray.length;
@@ -11,11 +10,14 @@ export default function ({ shift, action, output, input }, text) {
   const cipheredAlphabetArray = cipheredAlphabetString.split('');
   const cipheredAlphabetLength = cipheredAlphabetArray.length;
   const returnData = text.split('').map((i) => {
-    if (i === ' ' || (!originalAlphabetArray.includes(i))) {
+    if (i === ' ' || (!originalAlphabetArray.includes(i.toUpperCase()))) {
       return i;
+    } else {
+      if (i === i.toUpperCase()) {
+        return cipheredAlphabetArray[originalAlphabetArray.indexOf(i.toUpperCase())];
+      }
+      return (cipheredAlphabetArray[originalAlphabetArray.indexOf(i.toUpperCase())]).toLowerCase();
     }
-
-    return cipheredAlphabetArray[originalAlphabetArray.indexOf(i)];
   }).join('');
   return returnData;
 }
