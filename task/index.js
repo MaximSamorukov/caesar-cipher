@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import minimist from 'minimist';
-import cipher from './cipher.js';
+import cipher from './cipher';
 import fs from 'fs';
 
 const argv = minimist(process.argv);
@@ -53,7 +53,7 @@ const { shift, action, output, input } = returnObject;
 if (output !== false) {
   fs.open(output, (err, fd) => {
     if (err) {
-      console.log('Destination file. There is no file with stated address or access denied.');
+      console.error('Destination file. There is no file with stated address or access denied.');
       process.exit(1);
     } else {
       streamFromFile = (input === false) ? process.stdin : fs.createReadStream(input, 'utf8');
@@ -62,12 +62,14 @@ if (output !== false) {
       const toTerminal = process.stdout;
       const toTerminalError = process.stderr;
       streamFromFile.on('error', (er) => {
-        console.log('Source file. There is no file with stated address or access denied.');
+        console.error('Source file. There is no file with stated address or access denied.');
+        process.exit(1);
       });
 
       streamToFile
         .on('error', (er) => {
-          console.log('File to write to. There is no file with stated address or access denied.');
+          console.error('File to write to. There is no file with stated address or access denied.');
+          process.exit(1);
         })
         .on('pipe', () => {
           console.log('I\'m piped');
@@ -95,13 +97,15 @@ if (output !== false) {
   streamFromFile = (input === false) ? process.stdin : fs.createReadStream(input, 'utf8');
   streamToFile = (output === false) ? process.stdout : fs.createWriteStream(output, 'utf8');
   streamFromFile.on('error', (er) => {
-    console.log('Source file. There is no file with stated address or access denied.');
+    console.error('Source file. There is no file with stated address or access denied.');
+    process.exit(1);
   });
 
 
   streamToFile
     .on('error', (er) => {
-      console.log('File to write to. There is no file with stated address or access denied.');
+      console.error('File to write to. There is no file with stated address or access denied.');
+      process.exit(1);
     })
     .on('pipe', () => {
       console.log('I\'m piped');
