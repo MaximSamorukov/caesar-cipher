@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 import minimist from 'minimist';
-import cipher from './cipher';
+import cipher from './cipher.js';
 import fs from 'fs';
 
 const argv = minimist(process.argv);

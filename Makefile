@@ -5,4 +5,4 @@ publish:
 	npm publish --dry-run
 
 my_caesar_cli:
-	node ./task/index.js
+	node index.js
